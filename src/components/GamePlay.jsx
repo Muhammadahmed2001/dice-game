@@ -3,12 +3,14 @@ import NumberSelector from "./NumberSelector";
 import RoleDice from "./RoleDice";
 import Totalscore from "./TotalScore";
 import { useState } from "react";
+import Rules from "./Rules";
 
 const GamePlay = () => {
   const [selectedNumber, setSelectedNumber] = useState();
   const [currentDice, setCurrentDice] = useState("1");
   const [score, setScore] = useState("0");
   const [error, setError] = useState("");
+  const [showRule, setShowRule] = useState(false)
 
   const generateRendomnumber = () => {
     return Math.ceil(Math.random() * 6);
@@ -40,7 +42,10 @@ const GamePlay = () => {
           selectedNumber={selectedNumber}
         />
       </div>
-      <RoleDice currentDice={currentDice} roleDice={roleDice} />
+      <RoleDice showRule={showRule} setShowRule={setShowRule} setScore={setScore} currentDice={currentDice} roleDice={roleDice} />
+      {showRule && <Rules />}
+      
+
     </MainContainer>
   );
 };
