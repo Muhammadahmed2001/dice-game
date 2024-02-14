@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const RoleDice = ({ roleDice, currentDice, setScore, setShowRule, showRule }) => {
+const RoleDice = ({ roleDice, currentDice, setScore, setShowRule, showRule, setCurrentDice }) => {
   const resetScore = () => {
-    setScore("0")
+    setScore(0)
+    setCurrentDice("1")
   }
   const ruleShow = () => {
     setShowRule((prev)=> !(prev))
@@ -13,7 +14,7 @@ const RoleDice = ({ roleDice, currentDice, setScore, setShowRule, showRule }) =>
     <DiceContainer>
       <div className="dice" onClick={() => roleDice()}>
         <img
-          src={`../../src/assets/img/dice/dice_${currentDice}.png`}
+          src={`/images/dice_${currentDice}.png`}
           alt="dice 1"
         />
       </div>

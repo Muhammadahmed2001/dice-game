@@ -8,7 +8,7 @@ import Rules from "./Rules";
 const GamePlay = () => {
   const [selectedNumber, setSelectedNumber] = useState();
   const [currentDice, setCurrentDice] = useState("1");
-  const [score, setScore] = useState("0");
+  const [score, setScore] = useState(0);
   const [error, setError] = useState("");
   const [showRule, setShowRule] = useState(false)
 
@@ -27,7 +27,7 @@ const GamePlay = () => {
     if (selectedNumber === randomnumber) {
       setScore(score + randomnumber);
     } else {
-      setScore(score - 2);
+      setScore(score - 1);
     }
     setSelectedNumber("");
   };
@@ -42,7 +42,7 @@ const GamePlay = () => {
           selectedNumber={selectedNumber}
         />
       </div>
-      <RoleDice showRule={showRule} setShowRule={setShowRule} setScore={setScore} currentDice={currentDice} roleDice={roleDice} />
+      <RoleDice showRule={showRule} setCurrentDice={setCurrentDice} setShowRule={setShowRule} setScore={setScore} currentDice={currentDice} roleDice={roleDice} />
       {showRule && <Rules />}
       
 
